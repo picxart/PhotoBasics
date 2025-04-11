@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
@@ -8,39 +8,47 @@
         body {
             font-family: sans-serif; /* Базовий шрифт для прикладу */
             line-height: 1.6;
-            
+
             /* ЗАМІСТЬ старого margin: 20px; */
             /* Додаємо відступи: 20px зверху/знизу, 20% зліва/справа */
-            margin-top: 20px; 
+            margin-top: 20px;
             margin-bottom: 20px;
-            margin-left: 20%; 
+            margin-left: 20%;
             margin-right: 20%;
 
             /* Це призведе до того, що ваш основний контент займатиме 60% ширини екрану */
         }
-        
+
+        /* Стиль для заборони виділення тексту */
+        .no-select {
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE/Edge */
+            user-select: none; /* Standard */
+        }
+
         /* Решта ваших стилів для details, summary і т.д. залишаються без змін */
         details {
-            border: 1px solid #ccc; 
+            border: 1px solid #ccc;
             border-radius: 4px;
-            margin-bottom: 10px; 
-            background-color: #f9f9f9; 
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
         }
         summary {
-            cursor: pointer; 
-            font-weight: bold; 
-            padding: 10px; 
-            background-color: #eee; 
-            border-radius: 4px; 
+            cursor: pointer;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #eee;
+            border-radius: 4px;
         }
         details[open] summary {
-             border-bottom: 1px solid #ccc; 
-             border-bottom-left-radius: 0;
-             border-bottom-right-radius: 0;
+            border-bottom: 1px solid #ccc;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
         }
         .content-placeholder {
-            padding: 15px; 
-            border-top: 1px solid #ccc; 
+            padding: 15px;
+            border-top: 1px solid #ccc;
         }
     </style>
 </head>
