@@ -1735,5 +1735,14 @@
        </div>
     </details>
 </noscript>
+<script>
+      document.addEventListener('contextmenu', function(e) {
+        const targetElement = e.target;
+        // Перевірте, чи елемент, на якому натиснуто правою кнопкою миші, має клас 'no-select'
+        if (targetElement.classList.contains('no-select') || targetElement.closest('.no-select')) {
+          e.preventDefault(); // Блокувати контекстне меню для елементів з класом 'no-select'
+        }
+      });
+    </script>
 </body>
 </html>
