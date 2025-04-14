@@ -58,7 +58,7 @@
         }
     </style></head>
 <body>
-<h1>Основи художньої фотографії (Посібник)</h1><button id="expandAll">Розгорнути всі розділи</button><details id="Title" class="no-select">
+<h1>Основи художньої фотографії (Посібник)</h1><details id="Title" class="no-select">
         <summary>Обкладинка і вихідні дані</summary>
 <svg id="_Шар_1" data-name="Шар_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 595.3 683.2">
   <!-- Generator: Adobe Illustrator 29.0.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 186)  -->
@@ -425,7 +425,7 @@
     <hr>
 
     <h2>Курс лекційних занять</h2> 
-<button id="expandAll">Розгорнути всі розділи</button>  
+<button id="expandAll" style="float: right;">Розгорнути всі розділи</button>  
   <details id="peredmova" class="no-select">
         <summary>Передмова</summary>
         <div class="content-placeholder">
@@ -2580,13 +2580,29 @@
     </details>
 </noscript>
 <script>
-      document.addEventListener('contextmenu', function(e) {
-        const targetElement = e.target;
-        // Перевірте, чи елемент, на якому натиснуто правою кнопкою миші, має клас 'no-select'
-        if (targetElement.classList.contains('no-select') || targetElement.closest('.no-select')) {
-          e.preventDefault(); // Блокувати контекстне меню для елементів з класом 'no-select'
-        }
-      });
-    </script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const expandAllButton = document.getElementById('expandAll');
+    const detailsElements = document.querySelectorAll('details');
+
+    expandAllButton.addEventListener('click', function() {
+      // Перевіряємо, чи є хоча б один закритий розділ
+      const hasClosedDetails = Array.from(detailsElements).some(details => !details.open);
+
+      if (hasClosedDetails) {
+        // Якщо є закритий розділ, відкриваємо всі
+        detailsElements.forEach(details => {
+          details.open = true;
+        });
+        expandAllButton.textContent = 'Згорнути всі розділи';
+      } else {
+        // Якщо всі розділи відкриті, закриваємо всі
+        detailsElements.forEach(details => {
+          details.open = false;
+        });
+        expandAllButton.textContent = 'Розгорнути всі розділи';
+      }
+    });
+  });
+</script>
 </body>
 </html>
