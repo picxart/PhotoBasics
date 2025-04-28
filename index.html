@@ -2952,6 +2952,37 @@
   <div>
     </div>
 </details>
+<script>
+  const searchInput = document.getElementById('glossary-search');
+  const glossaryList = document.getElementById('glossary-list');
+  const terms = [
+    { term: 'Діафрагма', definition: 'Отвір в об\'єктиві, через який проходить світло. Регулює кількість світла, що потрапляє на матрицю, та глибину різкості.' },
+    { term: 'Витримка', definition: 'Час, протягом якого світло потрапляє на матрицю. Впливає на яскравість знімка та передачу руху.' },
+    { term: 'ISO', definition: 'Чутливість матриці до світла. Вищі значення ISO використовуються в умовах низької освітленості.' },
+    { term: 'Боке', definition: 'Естетична якість розмитості у позафокусних областях зображення.' },
+    // Додайте інші терміни...
+  ];
+
+  function displayTerms(filteredTerms) {
+    glossaryList.innerHTML = ''; // Очистити попередні результати
+    filteredTerms.forEach(item => {
+      const termElement = document.createElement('div');
+      termElement.classList.add('glossary-term');
+      termElement.innerHTML = `<h4>${item.term}</h4><p>${item.definition}</p>`;
+      glossaryList.appendChild(termElement);
+    });
+  }
+
+  searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value.toLowerCase(); // Перетворити введений текст на нижній регістр
+    const filteredTerms = terms.filter(item =>
+      item.term.toLowerCase().includes(searchTerm) // Пошук у нижньому регістрі
+    );
+    displayTerms(filteredTerms);
+  });
+
+  displayTerms(terms); // Показати всі терміни при завантаженні сторінки
+</script>
 <details id="dzherela">
   <summary>Список джерел</summary>
   <div class="content-placeholder">
